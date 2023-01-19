@@ -64,7 +64,7 @@ class MLPlayingBot(Bot):
             # If you're a leader, you don't have any follower moves
             follower_move_representation = get_move_feature_vector(None)
 
-            # Adds int representation of player_perspective,
+            # Adds int representation of state (PlayerPerspective),
             # valid moves, and our follower moves (None as we're the
             # leader).
             for my_move_representation in my_move_representations:
@@ -74,7 +74,7 @@ class MLPlayingBot(Bot):
                     + follower_move_representation
                 )
         else:
-            # Adds int representation of player_perspective,
+            # Adds int representation of state (PlayerPerspective),
             # valid moves, and our leader moves (None as we're the
             # follower).
             for my_move_representation in my_move_representations:

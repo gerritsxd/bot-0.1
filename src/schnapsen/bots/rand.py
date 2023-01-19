@@ -9,9 +9,7 @@ class RandBot(Bot):
         self.rng = random.Random(self.seed)
 
     def get_move(
-        self,
-        state: PlayerPerspective,
-        leader_move: Optional[Move],
+            self, state: PlayerPerspective, leader_move: Optional[Move]
     ) -> Move:
         moves: list[Move] = state.valid_moves()
         move = self.rng.choice(list(moves))
