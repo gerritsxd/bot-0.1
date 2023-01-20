@@ -1,4 +1,7 @@
 rand_rdeep_10k_games:
+Features: ORIGINAL
+
+Function:
 def create_replay_memory_dataset() -> None:
     # define replay memory database creation parameters
     num_of_games: int = 10000
@@ -14,6 +17,9 @@ def create_replay_memory_dataset() -> None:
 
 
 random_random_10k_games:
+Features: ORIGINAL
+
+Function:
 def create_replay_memory_dataset() -> None:
     # define replay memory database creation parameters
     num_of_games: int = 10000
@@ -27,10 +33,38 @@ def create_replay_memory_dataset() -> None:
     #bot_2_behaviour: Bot = RdeepBot(num_samples=4, depth=4, rand=random.Random(68438))
     delete_existing_older_dataset = False
 
-rdeep_rand_10k_games:
 
+rdeep_rand_10k_games:
+Features: ORIGINAL
+
+Function:
+def create_replay_memory_dataset() -> None:
+    # define replay memory database creation parameters
+    num_of_games: int = 10000
+    replay_memory_dir: str = 'ML_replay_memories'
+    replay_memory_filename: str = 'rdeep_rand_10k_games.txt'
+    replay_memory_location = pathlib.Path(replay_memory_dir) / replay_memory_filename
+
+    #bot_1_behaviour: Bot = RandBot(5234243)
+    bot_1_behaviour: Bot = RdeepBot(num_samples=4, depth=4, rand=random.Random(4564654644))
+    bot_2_behaviour: Bot = RandBot(54354)
+    #bot_2_behaviour: Bot = RdeepBot(num_samples=4, depth=4, rand=random.Random(68438))
+    delete_existing_older_dataset = False
 
 
 rdeep_rdeep_10k_games:
+Features: ORIGINAL
 
+Function:
+def create_replay_memory_dataset() -> None:
+    # define replay memory database creation parameters
+    num_of_games: int = 10000
+    replay_memory_dir: str = 'ML_replay_memories'
+    replay_memory_filename: str = 'rdeep_rand_10k_games.txt'
+    replay_memory_location = pathlib.Path(replay_memory_dir) / replay_memory_filename
 
+    #bot_1_behaviour: Bot = RandBot(5234243)
+    bot_1_behaviour: Bot = RdeepBot(num_samples=4, depth=4, rand=random.Random(4564654644))
+    #bot_2_behaviour: Bot = RandBot(54354)
+    bot_2_behaviour: Bot = RdeepBot(num_samples=4, depth=4, rand=random.Random(68438))
+    delete_existing_older_dataset = False
