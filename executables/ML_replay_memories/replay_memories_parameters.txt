@@ -1,7 +1,6 @@
-original_rand_rdeep_10k_games:
-    num_of_games: int = 10000
-    bot_1_behaviour: Bot = RandBot(5234243)
-    bot_2_behaviour: Bot = RdeepBot(num_samples=4, depth=4, rand=random.Random(68438))
+---------------------------------------------------------------------------------------------------
+---ORIGINAL----------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 
 
 original_rand_rand_10k_games:
@@ -9,12 +8,38 @@ original_rand_rand_10k_games:
     bot_1_behaviour: Bot = RandBot(5234243)
     bot_2_behaviour: Bot = RandBot(54354)
 
+---------------------------------------------------------------------------------------------------
+
+original_rand_rdeep_10k_games:
+    num_of_games: int = 10000
+    bot_1_behaviour: Bot = RandBot(5234243)
+    bot_2_behaviour: Bot = RdeepBot(num_samples=4, depth=4, rand=random.Random(68438))
+
+---------------------------------------------------------------------------------------------------
+
+
 original_rdeep_rand_10k_games:
     num_of_games: int = 10000
     bot_1_behaviour: Bot = RdeepBot(num_samples=4, depth=4, rand=random.Random(4564654644))
     bot_2_behaviour: Bot = RandBot(54354)
 
+---------------------------------------------------------------------------------------------------
+
 original_rdeep_rdeep_10k_games:
     num_of_games: int = 10000
     bot_1_behaviour: Bot = RdeepBot(num_samples=4, depth=4, rand=random.Random(4564654644))
     bot_2_behaviour: Bot = RdeepBot(num_samples=4, depth=4, rand=random.Random(68438))
+
+
+---------------------------------------------------------------------------------------------------
+---OKIBOT-1----------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+
+
+okibot_1_0_01_rand_rand_10k_games:
+    num_of_games: int = 10000
+    bot_1_behaviour: Bot = RandBot(5234243)
+    bot_2_behaviour: Bot = RandBot(54354)
+
+---------------------------------------------------------------------------------------------------
+

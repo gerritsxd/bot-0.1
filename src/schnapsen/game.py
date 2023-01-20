@@ -858,6 +858,23 @@ class PlayerPerspective(ABC):
 
         return full_state
 
+    # TODO remove get_remaining_trump_cards method
+    def get_remaining_trump_cards(self) -> int:
+        """
+        Accepts the PlayerPerspective state, determines the number of cards
+        of the trump suit that are still in the deck, and returns this
+        number.
+        """
+        trump_suit: Suit = self.get_trump_suit()
+        seen_cards: Iterable[Card] = self.seen_cards().get_cards()
+        remaining_trump_cards: int = 4
+
+        for card in seen_cards:
+            if card.suit == trump_suit:
+                remaining_trump_cards -= 1
+
+        return remaining_trump_cards
+
 
 class _DummyBot(Bot):
     """A bot used by PlayerPerspective.make_assumption to replace the real bots. This bot cannot play and will throw an Exception for everything"""

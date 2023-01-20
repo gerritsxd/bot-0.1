@@ -4,7 +4,8 @@ it by from schnapsen.bots import MyBot.
 from .rand import RandBot
 from .alphabeta import AlphaBetaBot
 from .rdeep import RdeepBot
-from .ml_bot import MLDataBot, MLPlayingBot, train_ML_model
+#from .ml_bot import MLDataBot, MLPlayingBot, train_ML_model
+from .okibot_1_0_01 import MLDataBot, MLPlayingBot, train_ML_model
 from .gui.guibot import SchnapsenServer
 
 __all__ = ["RandBot", "AlphaBetaBot", "RdeepBot", "MLDataBot", "MLPlayingBot", "train_ML_model", "SchnapsenServer"]
