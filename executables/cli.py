@@ -174,7 +174,7 @@ def train_model() -> None:
 def try_bot_game() -> None:
     engine = SchnapsenGamePlayEngine()
     model_dir: str = 'ML_models'
-    model_name: str = 'original_rand_rand_10k_games_model'
+    model_name: str = 'original_rdeep_rdeep_10k_games_model'
     model_location = pathlib.Path(model_dir) / model_name
     bot1: Bot = MLPlayingBot(model_location=model_location)
     bot2: Bot = RdeepBot(num_samples=4, depth=4, rand=random.Random(3589))

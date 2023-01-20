@@ -1,17 +1,41 @@
 original_rand_rand_10k_games_model vs RandBot(464566):
 won 7183 times out of 10000 games played.
 
+---------------------------------------------------------------------------------------------------
+
 original_rand_rdeep_10k_games_model vs RandBot(464566):
 won 7074 times out of 10000 games played.
 
+---------------------------------------------------------------------------------------------------
+
 original_rdeep_rand_10k_games_model vs RandBot(464566):
 won 6952 times out of 10000 games played.
+
+---------------------------------------------------------------------------------------------------
 
 original_rdeep_rdeep_10k_games_model vs RandBot(464566):
 won 6435 times out of 10000 games played.
 
 
+---------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
+
+
 original_rand_rand_10k_games_model vs RdeepBot(num_samples=4, depth=4, rand=random.Random(3589)):
 won 3522 times out of 10000 games played.
 
+---------------------------------------------------------------------------------------------------
+
 original_rand_rdeep_10k_games_model vs RdeepBot(num_samples=4, depth=4, rand=random.Random(3589)):
+won 3427 times out of 10000 games played.
+
+---------------------------------------------------------------------------------------------------
+
+original_rdeep_rand_10k_games_model vs RdeepBot(num_samples=4, depth=4, rand=random.Random(3589)):
+won 3296 times out of 10000 games played.
+
+---------------------------------------------------------------------------------------------------
+
+original_rdeep_deep_10k_games_model vs RdeepBot(num_samples=4, depth=4, rand=random.Random(3589)):
+won 3158 times out of 10000 games played.
