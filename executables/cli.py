@@ -149,7 +149,7 @@ def create_replay_memory_dataset() -> None:
 @ml.command()
 def train_model() -> None:
     # filename where the replay memory is saved
-    replay_memory_filename: str = 'original_rand_rand_10k_games.txt'
+    replay_memory_filename: str = 'original_rdeep_rdeep_10k_games.txt'
     # directory of replay memory within that directory
     replay_memories_directory: str = 'ML_replay_memories'
     # Whether to train a complicated Neural Network model or a simple one.
@@ -157,7 +157,7 @@ def train_model() -> None:
     # Feel free to play with the hyperparameters of the model in file 'ml_bot.py', function 'train_ML_model',
     # under the code of body of the if statement 'if use_neural_network:'
     replay_memory_location = pathlib.Path(replay_memories_directory) / replay_memory_filename
-    model_name: str = 'original_rand_rand_10k_games_model'
+    model_name: str = 'original_rdeep_rdeep_10k_games_model'
     model_dir: str = "ML_models"
     model_location = pathlib.Path(model_dir) / model_name
     overwrite: bool = False
@@ -167,7 +167,7 @@ def train_model() -> None:
         model_location.unlink()
 
     train_ML_model(replay_memory_location=replay_memory_location, model_location=model_location,
-                   model_class='LR')
+                   model_class='NN')
 
 
 @ml.command()
