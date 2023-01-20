@@ -148,9 +148,9 @@ def create_replay_memory_dataset() -> None:
 
 @ml.command()
 def train_model() -> None:
-    # directory where the replay memory is saved
+    # filename where the replay memory is saved
     replay_memory_filename: str = 'random_random_10k_games.txt'
-    # filename of replay memory within that directory
+    # directory of replay memory within that directory
     replay_memories_directory: str = 'ML_replay_memories'
     # Whether to train a complicated Neural Network model or a simple one.
     # Tips: a neural network usually requires bigger datasets to be trained on, and to play with the parameters of the model.
