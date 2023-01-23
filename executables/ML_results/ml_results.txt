@@ -214,3 +214,19 @@ Result:
 
 ---------------------------------------------------------------------------------------------------
 
+Version:
+1.0.11
+
+Features added (vs. original):
+- num_hand_cards (int)
+- whether the move is a royal marriage (one-hot encoding)
+
+vs RdeepBot(num_samples=4, depth=4, rand=random.Random(3589)):
+won 3459 times out of 10000 games played.
+
+Result:
+- compared to original ML bot:	Worse
+- compared to best ML bot:		Worse
+
+---------------------------------------------------------------------------------------------------
+
