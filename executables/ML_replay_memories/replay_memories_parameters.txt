@@ -36,28 +36,7 @@ original_rdeep_rdeep_10k_games:
 ---------------------------------------------------------------------------------------------------
 
 
-okibot_1_0_01_rand_rand_10k_games:
-    num_of_games: int = 10000
-    bot_1_behaviour: Bot = RandBot(5234243)
-    bot_2_behaviour: Bot = RandBot(54354)
-
----------------------------------------------------------------------------------------------------
-
-okibot_1_0_02_rand_rand_10k_games:
-    num_of_games: int = 10000
-    bot_1_behaviour: Bot = RandBot(5234243)
-    bot_2_behaviour: Bot = RandBot(54354)
-
----------------------------------------------------------------------------------------------------
-
-okibot_1_0_03_rand_rand_10k_games:
-    num_of_games: int = 10000
-    bot_1_behaviour: Bot = RandBot(5234243)
-    bot_2_behaviour: Bot = RandBot(54354)
-
----------------------------------------------------------------------------------------------------
-
-okibot_1_0_04_rand_rand_10k_games:
+okibot_1_X_XX_rand_rand_10k_games:
     num_of_games: int = 10000
     bot_1_behaviour: Bot = RandBot(5234243)
     bot_2_behaviour: Bot = RandBot(54354)

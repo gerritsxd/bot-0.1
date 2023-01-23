@@ -601,11 +601,11 @@ def get_state_feature_vector(state: PlayerPerspective) -> List[int]:
 
     # - the number of unknown trump cards
     seen_cards = (
-        hand_cards
-        + [trump_card]
-        + won_cards
-        + opponent_won_cards
-        + opponent_known_cards
+            hand_cards
+            + [trump_card]
+            + won_cards
+            + opponent_won_cards
+            + opponent_known_cards
     )
 
     unknown_trump_cards: int = 4
@@ -616,5 +616,15 @@ def get_state_feature_vector(state: PlayerPerspective) -> List[int]:
 
     # add this feature to the feature set
     state_feature_list += [unknown_trump_cards]
+
+    # - the number of seen trump cards
+    seen_trump_cards: int = 0
+
+    for card in seen_cards:
+        if card is not None and card.suit == trump_suit:
+            seen_trump_cards += 1
+
+    # add this feature to the feature set
+    state_feature_list += [seen_trump_cards]
 
     return state_feature_list
