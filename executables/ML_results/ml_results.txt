@@ -59,8 +59,11 @@ Dataset: rand vs. rand
 ---------------------------------------------------------------------------------------------------
 
 
+Version:
+1.0.01
+
 Features added (vs. original):
-- remaining_trump_cards (int)
+- unknown_trump_cards (int)
 
 okibot_1_0_01_rand_rand_10k_games_model vs RdeepBot(num_samples=4, depth=4, rand=random.Random(3589)):
 won 3431 times out of 10000 games played.
@@ -68,6 +71,9 @@ won 3431 times out of 10000 games played.
 Result: Worse than best ML bot
 
 ---------------------------------------------------------------------------------------------------
+
+Version:
+1.0.02
 
 Features added (vs. original):
 - num_hand_cards (int)
@@ -78,3 +84,18 @@ won 3568 times out of 10000 games played.
 Result: Best ML bot
 
 ---------------------------------------------------------------------------------------------------
+
+Version:
+1.0.03
+
+Features added (vs. original):
+- unknown_trump_cards (int)
+- num_hand_cards (int)
+
+okibot_1_0_03_rand_rand_10k_games_model vs RdeepBot(num_samples=4, depth=4, rand=random.Random(3589)):
+won 3481 times out of 10000 games played.
+
+Result: Worse than best ML bot
+
+---------------------------------------------------------------------------------------------------
+
