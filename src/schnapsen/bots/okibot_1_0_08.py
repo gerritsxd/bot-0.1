@@ -599,10 +599,10 @@ def get_state_feature_vector(state: PlayerPerspective) -> List[int]:
     # add this features to the feature set
     state_feature_list += deck_knowledge_in_consecutive_one_hot_encodings
 
-    # - the number of known cards in the opponent's hand
-    num_opp_known_cards: int = len(opponent_known_cards)
+    # - the number of cards in the player's hand
+    num_opp_won_cards: int = len(opponent_won_cards)
 
     # add this feature to the feature set
-    state_feature_list += [num_opp_known_cards]
+    state_feature_list += [num_opp_won_cards]
 
     return state_feature_list
