@@ -65,10 +65,12 @@ Version:
 Features added (vs. original):
 - unknown_trump_cards (int)
 
-okibot_1_0_01_rand_rand_10k_games_model vs RdeepBot(num_samples=4, depth=4, rand=random.Random(3589)):
+vs RdeepBot(num_samples=4, depth=4, rand=random.Random(3589)):
 won 3431 times out of 10000 games played.
 
-Result: Worse than best ML bot
+Result:
+- compared to original ML bot:	Worse
+- compared to best ML bot:		Worse
 
 ---------------------------------------------------------------------------------------------------
 
@@ -78,10 +80,12 @@ Version:
 Features added (vs. original):
 - num_hand_cards (int)
 
-okibot_1_0_02_rand_rand_10k_games_model vs RdeepBot(num_samples=4, depth=4, rand=random.Random(3589)):
+vs RdeepBot(num_samples=4, depth=4, rand=random.Random(3589)):
 won 3568 times out of 10000 games played.
 
-Result: Best ML bot
+Result:
+- compared to original ML bot:	Better
+- compared to best ML bot:		BEST
 
 ---------------------------------------------------------------------------------------------------
 
@@ -92,10 +96,12 @@ Features added (vs. original):
 - unknown_trump_cards (int)
 - num_hand_cards (int)
 
-okibot_1_0_03_rand_rand_10k_games_model vs RdeepBot(num_samples=4, depth=4, rand=random.Random(3589)):
+vs RdeepBot(num_samples=4, depth=4, rand=random.Random(3589)):
 won 3481 times out of 10000 games played.
 
-Result: Worse than best ML bot
+Result:
+- compared to original ML bot:	Worse
+- compared to best ML bot:		Worse
 
 ---------------------------------------------------------------------------------------------------
 
@@ -106,10 +112,12 @@ Features added (vs. original):
 - seen_trump_cards (int)
 - num_hand_cards (int)
 
-okibot_1_0_04_rand_rand_10k_games_model vs RdeepBot(num_samples=4, depth=4, rand=random.Random(3589)):
+vs RdeepBot(num_samples=4, depth=4, rand=random.Random(3589)):
 won 3522 times out of 10000 games played.
 
-Result: Worse than best ML bot
+Result:
+- compared to original ML bot:	Equal
+- compared to best ML bot:		Worse
 
 ---------------------------------------------------------------------------------------------------
 
@@ -120,10 +128,12 @@ Features added (vs. original):
 - unknown_trump_cards (int)
 - seen_trump_cards (int)
 
-okibot_1_0_05_rand_rand_10k_games_model vs RdeepBot(num_samples=4, depth=4, rand=random.Random(3589)):
+vs RdeepBot(num_samples=4, depth=4, rand=random.Random(3589)):
 won 3364 times out of 10000 games played.
 
-Result: Worse than best ML bot
+Result:
+- compared to original ML bot:	Worse
+- compared to best ML bot:		Worse
 
 ---------------------------------------------------------------------------------------------------
 
@@ -135,10 +145,12 @@ Features added (vs. original):
 - seen_trump_cards (int)
 - num_hand_cards (int)
 
-okibot_1_0_06_rand_rand_10k_games_model vs RdeepBot(num_samples=4, depth=4, rand=random.Random(3589)):
+vs RdeepBot(num_samples=4, depth=4, rand=random.Random(3589)):
 won 3431 times out of 10000 games played.
 
-Result: Worse than best ML bot
+Result:
+- compared to original ML bot:	Worse
+- compared to best ML bot:		Worse
 
 ---------------------------------------------------------------------------------------------------
 
@@ -148,10 +160,12 @@ Version:
 Features added (vs. original):
 - num_opp_known_cards (int)
 
-okibot_1_0_07_rand_rand_10k_games_model vs RdeepBot(num_samples=4, depth=4, rand=random.Random(3589)):
+vs RdeepBot(num_samples=4, depth=4, rand=random.Random(3589)):
 won 3379 times out of 10000 games played.
 
-Result: Worse than best ML bot
+Result:
+- compared to original ML bot:	Worse
+- compared to best ML bot:		Worse
 
 ---------------------------------------------------------------------------------------------------
 
@@ -161,10 +175,27 @@ Version:
 Features added (vs. original):
 - num_opp_won_cards (int)
 
-okibot_1_0_08_rand_rand_10k_games_model vs RdeepBot(num_samples=4, depth=4, rand=random.Random(3589)):
+vs RdeepBot(num_samples=4, depth=4, rand=random.Random(3589)):
 won 3266 times out of 10000 games played.
 
-Result: Worse than best ML bot
+Result:
+- compared to original ML bot:	Worse
+- compared to best ML bot:		Worse
+
+---------------------------------------------------------------------------------------------------
+
+Version:
+1.0.09
+
+Features added (vs. original):
+- player_tot_points (int)
+
+vs RdeepBot(num_samples=4, depth=4, rand=random.Random(3589)):
+won 3537 times out of 10000 games played.
+
+Result:
+- compared to original ML bot:	Better
+- compared to best ML bot:		Worse
 
 ---------------------------------------------------------------------------------------------------
 
