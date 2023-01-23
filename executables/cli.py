@@ -119,7 +119,7 @@ def create_replay_memory_dataset() -> None:
     # define replay memory database creation parameters
     num_of_games: int = 10000
     replay_memory_dir: str = 'ML_replay_memories'
-    replay_memory_filename: str = 'okibot_1_0_03_rand_rand_10k_games.txt'
+    replay_memory_filename: str = 'okibot_1_0_04_rand_rand_10k_games.txt'
     replay_memory_location = pathlib.Path(replay_memory_dir) / replay_memory_filename
 
     bot_1_behaviour: Bot = RandBot(5234243)
@@ -151,7 +151,7 @@ def create_replay_memory_dataset() -> None:
 def train_model() -> None:
 
     # filename where the replay memory is saved
-    replay_memory_filename: str = 'okibot_1_0_03_rand_rand_10k_games.txt'
+    replay_memory_filename: str = 'okibot_1_0_04_rand_rand_10k_games.txt'
 
     # directory of replay memory within that directory
     replay_memories_directory: str = 'ML_replay_memories'
@@ -161,7 +161,7 @@ def train_model() -> None:
     # Feel free to play with the hyperparameters of the model in file 'ml_bot.py', function 'train_ML_model',
     # under the code of body of the if statement 'if use_neural_network:'
     replay_memory_location = pathlib.Path(replay_memories_directory) / replay_memory_filename
-    model_name: str = 'okibot_1_0_03_rand_rand_10k_games_model'
+    model_name: str = 'okibot_1_0_04_rand_rand_10k_games_model'
     model_dir: str = "ML_models"
     model_location = pathlib.Path(model_dir) / model_name
     overwrite: bool = False
@@ -178,7 +178,7 @@ def train_model() -> None:
 def try_bot_game() -> None:
     engine = SchnapsenGamePlayEngine()
     model_dir: str = 'ML_models'
-    model_name: str = 'okibot_1_0_03_rand_rand_10k_games_model'
+    model_name: str = 'okibot_1_0_04_rand_rand_10k_games_model'
     model_location = pathlib.Path(model_dir) / model_name
     bot1: Bot = MLPlayingBot(model_location=model_location)
     bot2: Bot = RdeepBot(num_samples=4, depth=4, rand=random.Random(3589))
