@@ -142,3 +142,16 @@ Result: Worse than best ML bot
 
 ---------------------------------------------------------------------------------------------------
 
+Version:
+1.0.07
+
+Features added (vs. original):
+- num_opp_known_cards (int)
+
+okibot_1_0_07_rand_rand_10k_games_model vs RdeepBot(num_samples=4, depth=4, rand=random.Random(3589)):
+won 3379 times out of 10000 games played.
+
+Result: Worse than best ML bot
+
+---------------------------------------------------------------------------------------------------
+

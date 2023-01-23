@@ -19,7 +19,7 @@ def main(bot: str) -> None:
         elif bot.lower() in ["alphabeta", "alphabetabot"]:
             bot1 = AlphaBetaBot()
         elif bot.lower() == "rdeepbot":
-            bot1 = RdeepBot(num_samples=16, depth=4, rand=random.Random(42))
+            bot1 = RdeepBot(num_samples=4, depth=4, rand=random.Random(3589))
         else:
             raise NotImplementedError
         bot2 = s.make_gui_bot(name="mybot2")
