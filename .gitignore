@@ -1,5 +1,8 @@
 .vscode
 
+# Replay memory datasets
+ML_replay_memories/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

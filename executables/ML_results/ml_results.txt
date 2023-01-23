@@ -65,7 +65,16 @@ Features added (vs. original):
 okibot_1_0_01_rand_rand_10k_games_model vs RdeepBot(num_samples=4, depth=4, rand=random.Random(3589)):
 won 3431 times out of 10000 games played.
 
-Result: Worse
+Result: Worse than best ML bot
 
 ---------------------------------------------------------------------------------------------------
 
+Features added (vs. original):
+- num_hand_cards (int)
+
+okibot_1_0_02_rand_rand_10k_games_model vs RdeepBot(num_samples=4, depth=4, rand=random.Random(3589)):
+won 3568 times out of 10000 games played.
+
+Result: Best ML bot
+
+---------------------------------------------------------------------------------------------------
