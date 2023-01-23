@@ -191,7 +191,22 @@ Features added (vs. original):
 - player_tot_points (int)
 
 vs RdeepBot(num_samples=4, depth=4, rand=random.Random(3589)):
-won 3537 times out of 10000 games played.
+won 3468 times out of 10000 games played.
+
+Result:
+- compared to original ML bot:	Worse
+- compared to best ML bot:		Worse
+
+---------------------------------------------------------------------------------------------------
+
+Version:
+1.0.10
+
+Features added (vs. original):
+- whether the move is a royal marriage (one-hot encoding)
+
+vs RdeepBot(num_samples=4, depth=4, rand=random.Random(3589)):
+won 3539 times out of 10000 games played.
 
 Result:
 - compared to original ML bot:	Better
