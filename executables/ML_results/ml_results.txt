@@ -263,3 +263,27 @@ Result:
 
 ---------------------------------------------------------------------------------------------------
 
+Class:
+LR
+
+Version:
+1.0.12
+
+Features added (vs. original):
+- whether the move is a royal marriage (one-hot encoding)
+- player_tot_points (int)
+- opponents_tot_points (int)
+- num_hand_cards (int)
+- num_opp_known_cards (int)
+- num_opp_won_cards (int)
+- unknown_trump_cards (int)
+- seen_trump_cards (int)
+
+vs RdeepBot(num_samples=4, depth=4, rand=random.Random(3589)):
+won 3568 times out of 10000 games played.
+
+Result:
+- compared to original ML bot:	Better
+- compared to best ML bot:		Equal
+
+---------------------------------------------------------------------------------------------------
