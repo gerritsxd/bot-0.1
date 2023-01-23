@@ -326,7 +326,7 @@ def train_ML_model(replay_memory_location: Optional[pathlib.Path],
 
         # Usually there is no reason to change the hyperparameters of
         # such a simple model but fill free to experiment:
-        learner = LogisticRegression(max_iter=1000)
+        learner = LogisticRegression(max_iter=1250)
     else:
         raise AssertionError("Unknown model class")
 
@@ -513,9 +513,13 @@ def get_state_feature_vector(state: PlayerPerspective) -> List[int]:
     # - pending points of this player (int)
     player_pending_points = player_score.pending_points
 
+    # - total points of this player
+    player_tot_points: int = player_points + player_pending_points
+
     # add the features to the feature set
     state_feature_list += [player_points]
     state_feature_list += [player_pending_points]
+    state_feature_list += [player_tot_points]
 
     # Get the opponents' score (including direct & pending points)
     opponents_score = state.get_opponent_score()
@@ -526,9 +530,13 @@ def get_state_feature_vector(state: PlayerPerspective) -> List[int]:
     # - pending points of opponent (int)
     opponents_pending_points = opponents_score.pending_points
 
+    # - total points of opponent
+    opponents_tot_points: int = opponents_points + opponents_pending_points
+
     # add the features to the feature set
     state_feature_list += [opponents_points]
     state_feature_list += [opponents_pending_points]
+    state_feature_list += [opponents_tot_points]
 
     # - the trump suit (1-hot encoding)
     trump_suit = state.get_trump_suit()
@@ -608,7 +616,7 @@ def get_state_feature_vector(state: PlayerPerspective) -> List[int]:
 
     #deck_knowledge_flattened: np.ndarray = np.concatenate(tuple(deck_knowledge_in_one_hot_encoding), axis=0)
 
-    # add this features to the feature set
+    # add this feature to the feature set
     state_feature_list += deck_knowledge_in_consecutive_one_hot_encodings
 
     # - the number of cards in the player's hand
@@ -616,5 +624,53 @@ def get_state_feature_vector(state: PlayerPerspective) -> List[int]:
 
     # add this feature to the feature set
     state_feature_list += [num_hand_cards]
+
+    # - the number of known cards in the opponent's hand
+    num_opp_known_cards: int = len(opponent_known_cards)
+
+    # add this feature to the feature set
+    state_feature_list += [num_opp_known_cards]
+
+    # - the number of cards won by the opponent
+    num_opp_won_cards: int = len(opponent_won_cards)
+
+    # add this feature to the feature set
+    state_feature_list += [num_opp_won_cards]
+
+    # - the number of unknown trump cards
+    seen_cards = (
+            hand_cards
+            + [trump_card]
+            + won_cards
+            + opponent_won_cards
+            + opponent_known_cards
+    )
+
+    unknown_trump_cards: int = 4
+
+    for card in seen_cards:
+        if card is not None and card.suit == trump_suit:
+            unknown_trump_cards -= 1
+
+    # add this feature to the feature set
+    state_feature_list += [unknown_trump_cards]
+
+    # - the number of seen trump cards
+    seen_cards = (
+            hand_cards
+            + [trump_card]
+            + won_cards
+            + opponent_won_cards
+            + opponent_known_cards
+    )
+
+    seen_trump_cards: int = 0
+
+    for card in seen_cards:
+        if card is not None and card.suit == trump_suit:
+            seen_trump_cards += 1
+
+    # add this feature to the feature set
+    state_feature_list += [seen_trump_cards]
 
     return state_feature_list
