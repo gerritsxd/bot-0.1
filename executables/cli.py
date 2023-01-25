@@ -4,7 +4,7 @@ import pathlib
 from typing import Optional
 
 import click
-from schnapsen.bots import MLDataBot, train_ML_model, MLPlayingBot, RandBot
+from schnapsen.bots import MLDataBot, train_ML_model, MLPlayingBot, OkiDataBot, OkiPlayingBot, train_Oki_model, RandBot
 
 from schnapsen.bots.example_bot import ExampleBot
 
@@ -138,8 +138,8 @@ def create_replay_memory_dataset() -> None:
 
     # create new replay memory dataset, according to the behaviour of the provided bots and the provided random seed
     engine = SchnapsenGamePlayEngine()
-    replay_memory_recording_bot_1 = MLDataBot(bot_1_behaviour, replay_memory_location=replay_memory_location)
-    replay_memory_recording_bot_2 = MLDataBot(bot_2_behaviour, replay_memory_location=replay_memory_location)
+    replay_memory_recording_bot_1 = OkiDataBot(bot_1_behaviour, replay_memory_location=replay_memory_location)
+    replay_memory_recording_bot_2 = OkiDataBot(bot_2_behaviour, replay_memory_location=replay_memory_location)
     for i in range(1, num_of_games + 1):
         if i % 500 == 0:
             print(f"Progress: {i}/{num_of_games}")
@@ -158,7 +158,7 @@ def train_model() -> None:
 
     # Whether to train a complicated Neural Network model or a simple one.
     # Tips: a neural network usually requires bigger datasets to be trained on, and to play with the parameters of the model.
-    # Feel free to play with the hyperparameters of the model in file 'ml_bot.py', function 'train_ML_model',
+    # Feel free to play with the hyperparameters of the model in file 'ml_bot.py', function 'train_Oki_model',
     # under the code of body of the if statement 'if use_neural_network:'
     replay_memory_location = pathlib.Path(replay_memories_directory) / replay_memory_filename
     model_name: str = 'okibot_1_0_12_rand_rand_100k_games_NN_model'
@@ -170,7 +170,7 @@ def train_model() -> None:
         print(f"Model at {model_location} exists already and will be overwritten as selected.")
         model_location.unlink()
 
-    train_ML_model(replay_memory_location=replay_memory_location, model_location=model_location,
+    train_Oki_model(replay_memory_location=replay_memory_location, model_location=model_location,
                    model_class='NN')
 
 
@@ -180,7 +180,7 @@ def try_bot_game() -> None:
     model_dir: str = 'ML_models'
     model_name: str = 'okibot_1_0_12_rand_rand_100k_games_NN_model'
     model_location = pathlib.Path(model_dir) / model_name
-    bot1: Bot = MLPlayingBot(model_location=model_location)
+    bot1: Bot = OkiPlayingBot(model_location=model_location)
     bot2: Bot = RdeepBot(num_samples=4, depth=4, rand=random.Random(3589))
     number_of_games: int = 10000
 

@@ -5,7 +5,7 @@ from .rand import RandBot
 from .alphabeta import AlphaBetaBot
 from .rdeep import RdeepBot
 from .ml_bot import MLDataBot, MLPlayingBot, train_ML_model
-#from .okibot_1_0_12 import MLDataBot, MLPlayingBot, train_ML_model
+from .okibot_1_0_12 import OkiDataBot, OkiPlayingBot, train_Oki_model
 from .gui.guibot import SchnapsenServer
 
-__all__ = ["RandBot", "AlphaBetaBot", "RdeepBot", "MLDataBot", "MLPlayingBot", "train_ML_model", "SchnapsenServer"]
+__all__ = ["RandBot", "AlphaBetaBot", "RdeepBot", "MLDataBot", "MLPlayingBot", "train_ML_model", "OkiDataBot", "OkiPlayingBot", "train_Oki_model", "SchnapsenServer"]

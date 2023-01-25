@@ -9,14 +9,14 @@ import time
 import pathlib
 
 
-class MLPlayingBot(Bot):
+class OkiPlayingBot(Bot):
     """
     This class loads a trained ML model and uses it to play
     """
 
     def __init__(self, model_location: Optional[pathlib.Path]) -> None:
         """
-        Create a new MLPlayingBot which uses the model stored in the
+        Create a new OkiPlayingBot which uses the model stored in the
         model_location.
 
         :param model_location: The file containing the model.
@@ -108,7 +108,7 @@ class MLPlayingBot(Bot):
         return best_move
 
 
-class MLDataBot(Bot):
+class OkiDataBot(Bot):
     """
     This class is defined to allow the creation of a training schnapsen
     bot dataset, that allows us to train a Machine Learning (ML) Bot
@@ -204,19 +204,19 @@ class MLDataBot(Bot):
                 replay_memory_file.write(f"{str(state_actions_representation)[1:-1]} || {int(won_label)}\n")
 
 
-def train_ML_model(replay_memory_location: Optional[pathlib.Path],
+def train_Oki_model(replay_memory_location: Optional[pathlib.Path],
                    model_location: Optional[pathlib.Path],
                    model_class: Literal["NN", "LR"] = "LR"
                    ) -> None:
     """
-    Train the ML model for the MLPlayingBot based on replay memory
-    stored by the MLDataBot. This implementation has the option to train
+    Train the ML model for the OkiPlayingBot based on replay memory
+    stored by the OkiDataBot. This implementation has the option to train
     a neural network model or a model based on linear regression. The
     model classes used in this implementation are not necessarily
     optimal.
 
     :param replay_memory_location: Location of the games stored by
-    MLDataBot,
+    OkiDataBot,
     default pathlib.Path('ML_replay_memories') / 'test_replay_memory'
 
     :param model_location: Location where the model will be stored,
