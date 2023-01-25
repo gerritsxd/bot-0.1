@@ -36,8 +36,6 @@ def main(bot: str, loop: str) -> None:
             # bot1 = s.make_gui_bot(name="mybot1")
             engine.play_game(bot1, bot2, random.Random(random.randint(0, 1000000)))
         else:
-            model_dir: str = 'ML_models'
-
             ml_bot_name: str = 'ml_bot_rand_rand_100k_games_NN_model'
             okibot_name: str = 'okibot_1_0_12_rand_rand_100k_games_NN_model'
 
@@ -50,27 +48,27 @@ def main(bot: str, loop: str) -> None:
             okibot_count: int = 0
 
             for _ in range(30):
-                model_name: str = random.choice(options)
-                model_location = pathlib.Path(model_dir) / model_name
-                bot1: Bot = MLPlayingBot(model_location=model_location)
+                if bot.lower() == "mlplayingbot":
+                    model_dir: str = 'ML_models'
+                    model_name: str = random.choice(options)
+                    model_location = pathlib.Path(model_dir) / model_name
+                    bot1: Bot = MLPlayingBot(model_location=model_location)
 
-                if model_name == ml_bot_name:
-                    ml_bot_count += 1
-                elif model_name == okibot_name:
-                    okibot_count += 1
+                    if model_name == ml_bot_name:
+                        ml_bot_count += 1
+                    elif model_name == okibot_name:
+                        okibot_count += 1
 
-                if ml_bot_count == 15:
-                    options.remove(ml_bot_name)
+                    if ml_bot_count == 15:
+                        options.remove(ml_bot_name)
 
-                if okibot_count == 15:
-                    options.remove(okibot_name)
+                    if okibot_count == 15:
+                        options.remove(okibot_name)
                 else:
                     raise NotImplementedError
 
                 bot2: Bot = s.make_gui_bot(name="mybot2")
                 engine.play_game(bot1, bot2, random.Random(random.randint(1, 1000000)))
-
-                if
 
 
 if __name__ == "__main__":

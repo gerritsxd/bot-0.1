@@ -442,22 +442,22 @@ def get_move_feature_vector(
     else:
         move_type_one_hot_encoding: list[int]
 
-        # i) in case the move is a royal marriage move
+        # a) in case the move is a royal marriage move
         if move.is_marriage() and move.suit == state.get_trump_suit():
             move_type_one_hot_encoding = [0, 0, 0, 1]
             card = move.queen_card
 
-        # ii) in case the move is a marriage move
+        # b) in case the move is a marriage move
         if move.is_marriage():
             move_type_one_hot_encoding = [0, 0, 1, 0]
             card = move.queen_card
 
-        # iii) in case the move is a trump exchange move
+        # c) in case the move is a trump exchange move
         elif move.is_trump_exchange():
             move_type_one_hot_encoding = [0, 1, 0, 0]
             card = move.jack
 
-        # iv) in case it is a regular move
+        # d) in case it is a regular move
         else:
             move_type_one_hot_encoding = [1, 0, 0, 0]
             card = move.card
@@ -488,12 +488,19 @@ def get_state_feature_vector(state: PlayerPerspective) -> List[int]:
         - points of the opponent (int)
         - pending points of this player (int)
         - pending points of opponent (int)
+        - total points of this player (int)
+        - total points of opponent (int)
         - the trump suit (1-hot encoding)
         - phase of game (1-hot encoding)
         - talon size (int)
         - if this player is leader (1-hot encoding)
         - What is the status of each card of the deck
           (where it is, or if its location is unknown)
+        - number of hand cards (int)
+        - number of known opponent cards (int)
+        - number of cards won by the opponent (int)
+        - number of unknown cards of the trump suit (int)
+        - number of seen cards of the trump suit (int)
 
         Important: This function should not include the move of this
         agent. It should only include any earlier actions of other
@@ -646,7 +653,7 @@ def get_state_feature_vector(state: PlayerPerspective) -> List[int]:
             + opponent_known_cards
     )
 
-    unknown_trump_cards: int = 4
+    unknown_trump_cards: int = 5
 
     for card in seen_cards:
         if card is not None and card.suit == trump_suit:
@@ -656,19 +663,7 @@ def get_state_feature_vector(state: PlayerPerspective) -> List[int]:
     state_feature_list += [unknown_trump_cards]
 
     # - the number of seen trump cards
-    seen_cards = (
-            hand_cards
-            + [trump_card]
-            + won_cards
-            + opponent_won_cards
-            + opponent_known_cards
-    )
-
-    seen_trump_cards: int = 0
-
-    for card in seen_cards:
-        if card is not None and card.suit == trump_suit:
-            seen_trump_cards += 1
+    seen_trump_cards: int = 5 - unknown_trump_cards
 
     # add this feature to the feature set
     state_feature_list += [seen_trump_cards]
