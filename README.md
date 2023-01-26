@@ -1,5 +1,29 @@
 # Schnapsen platform - Project Intelligent Systems 2022-2023
 
+## Run the Player tests
+To run for the players, run:
+```sh
+cd executables
+```
+- Leen
+```sh
+python server.py multiple Leen
+```
+- Tobias
+```sh
+python server.py multiple Tobias
+```
+- Jasper
+```sh
+python server.py multiple Jasper
+```
+
+To run the tournament as an admin, run:
+- Admin
+```sh
+python server.py multiple Admin
+```
+
 ## Getting started
 
 This is the improved platform for the schnapsen card game. To get to know the concept of the game, please visit
