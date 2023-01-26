@@ -1,9 +1,10 @@
-import random
-import pathlib
 from schnapsen.bots import SchnapsenServer, MLPlayingBot, OkiPlayingBot
 from schnapsen.bots import RandBot, AlphaBetaBot, RdeepBot
 from schnapsen.game import SchnapsenGamePlayEngine, Bot
+import pathlib
+import random
 import click
+import csv
 
 
 @click.group()
@@ -34,9 +35,14 @@ def single(bot: str) -> None:
 
 
 @main.command()
-def multiple() -> None:
+@click.argument('player_name')
+def multiple(player_name) -> None:
     """Run 30 games vs. ML bots in the GUI."""
     engine: SchnapsenGamePlayEngine = SchnapsenGamePlayEngine()
+
+    results_dir: str = 'ML_results'
+    results_file: str = 'human_results.csv'
+    results_location = pathlib.Path(results_dir) / results_file
 
     model_dir: str = 'ML_models'
 
@@ -55,40 +61,42 @@ def multiple() -> None:
     okibot_count: int = 0
 
     with SchnapsenServer() as s:
-        for i in range(30):
+        for i in range(1, 31):
             bot1: Bot = random.choice(bot_options)
 
             if bot1 == ml_bot:
                 ml_bot_count += 1
-                print(f'ml_bot_count has been updated to: {ml_bot_count}')
             elif bot1 == okibot:
                 okibot_count += 1
-                print(f'okibot_count has been updated to: {okibot_count}')
 
             if ml_bot_count == 15:
                 ml_bot_count -= 15
                 bot_options.remove(ml_bot)
-                print(f'bot_options has been updated to: {bot_options}')
 
             if okibot_count == 15:
                 okibot_count -= 15
                 bot_options.remove(okibot)
-                print(f'bot_options has been updated to: {bot_options}')
 
-            bot2 = s.make_gui_bot(name=f"UNKNOWN ML BOT [GAME {i + 1}]")
+            bot2 = s.make_gui_bot(name=f"Unknown bot [GAME {i}]")
 
-            winner, points, score = engine.play_game(
+            winner, game_points, round_points = engine.play_game(
                 bot1,
                 bot2,
                 random.Random(random.randint(1, 999999))
             )
 
-            print(
-                f'Game: {i + 1}\n'
-                f'Winner: {winner}\n'
-                f'Points: {points}\n'
-                f'Score: {score}\n'
-            )
+            game_data: list[any] = [
+                player_name,
+                i,
+                bot1,
+                winner,
+                game_points,
+                round_points
+            ]
+
+            with open(results_location, 'a', newline='') as csvfile:
+                csvwriter = csv.writer(csvfile)
+                csvwriter.writerow(game_data)
 
 
 if __name__ == "__main__":
