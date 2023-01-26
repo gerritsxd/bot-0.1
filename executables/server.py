@@ -48,12 +48,13 @@ def single(bot: str) -> None:
 
 
 @main.command()
-@click.argument(
-    'player_name',
-    help='The name of the human that will play 30 games (e.g. Leen).'
-)
+@click.argument('player_name')
 def multiple(player_name) -> None:
-    """Run 30 games vs. ML bots in the GUI."""
+    """
+    Run 30 games vs. ML bots in the GUI.
+
+    PLAYER_NAME: Name of the human that will play 30 games (e.g. Leen).
+    """
     engine: SchnapsenGamePlayEngine = SchnapsenGamePlayEngine()
 
     results_dir: str = 'ML_results'
