@@ -89,9 +89,7 @@ def multiple(player_name) -> None:
                 player_name,
                 i,
                 bot1,
-                winner,
-                game_points,
-                round_points
+                winner
             ]
 
             with open(results_location, 'a', newline='') as csvfile:

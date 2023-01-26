@@ -104,6 +104,12 @@ class MLPlayingBot(Bot):
         assert best_move is not None
         return best_move
 
+    def __str__(self) -> str:
+        """
+        Returns the informal string representation of the MLPlayingBot.
+        """
+        return 'ml_bot'
+
 
 class MLDataBot(Bot):
     """
