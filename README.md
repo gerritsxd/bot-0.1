@@ -25,15 +25,25 @@ pytest ./tests
 If the above fails, try deactivating your environment and activating it again.
 Then retry installing the dependencies.
 
+## Opening the executables folder
+
+The executables folder contains the cli.py and server.py files (among others).
+In order to run commands for cli.py and server.py without having to type ```'executables/'```
+before the file names, run:
+
+```sh
+cd executables
+```
+
 ## Running the CLI
 
-After intalling, you can try the provided command line interface examples.
+After installing, you can try the provided command line interface examples.
 Most examples are bots playing against each other; read the code for details.
 
 To run the CLI, run:
 
 ```sh
-python executables/cli.py
+python cli.py
 ```
 This will list the available commands.
 
@@ -45,19 +55,40 @@ For example, if you want try a RandBot play against another RandBot, type
 
 The graphical user interface (GUI) lets you play visually against a bot (e.g., You vs. RandBot).
 
-To start the GUI, run:
+To start a single game in the GUI, run:
 
 ```sh
-python executables/server.py
+python server.py single -b [INSERT OPPONENT_BOT_NAME]
 ```
 
-Now, open your webbrowser and type in the server address (i.e., http://127.0.0.1:8080). 
-By default, you are playing against RandBot. You can also play against other bots. Run 
+Replace ```[INSERT OPPONENT_BOT_NAME]``` with the bot you want to play a
+single game against (e.g. MLPlayingBot).
+
+Now, open your web browser and type in the server address (i.e., http://127.0.0.1:8080). 
+By default, you are playing against OkiBot. You can also play against other bots.
+
+To start a loop of 30 games in the GUI, run:
 
 ```sh
-python executables/server.py --help
+python server.py multiple [INSERT HUMAN_PLAYER_NAME]
 ```
-for more details.
+
+Replace ```[INSERT HUMAN_PLAYER_NAME]``` with the name of the human player
+that will play 15 games each against ml_bot and okibot (e.g. Leen).
+
+For more details, run:
+
+```sh
+python server.py --help
+```
+
+```sh
+python server.py single --help
+```
+
+```sh
+python server.py multiple --help
+```
 
 ## Implementing more bots
 
