@@ -2,23 +2,26 @@
 
 ## Run the Player tests
 To run for the players, run:
+```sh
+cd executables
+```
 - Leen
 ```sh
-python executables/server.py multiple Leen
+python server.py multiple Leen
 ```
 - Tobias
 ```sh
-python executables/server.py multiple Tobias
+python server.py multiple Tobias
 ```
 - Jasper
 ```sh
-python executables/server.py multiple Jasper
+python server.py multiple Jasper
 ```
 
 To run the tournament as an admin, run:
 - Admin
 ```sh
-python executables/server.py multiple Admin
+python server.py multiple Admin
 ```
 
 ## Getting started
