@@ -23,6 +23,12 @@ class GUIBot(Bot):
     def notify_game_end(self, won: bool, state: PlayerPerspective) -> None:
         self.server._post_final_state(self.name, state)
 
+    def __str__(self):
+        """
+        Returns the informal string representation of GUIBot.
+        """
+        return 'gui_player'
+
 
 @dataclass
 class _StateExchange:
