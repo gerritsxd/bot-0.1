@@ -31,11 +31,11 @@ def single(bot: str) -> None:
         elif bot.lower() == "rdeepbot":
             bot1 = RdeepBot(num_samples=4, depth=4, rand=random.Random(3589))
         elif bot.lower() == "mlplayingbot":
-            ml_model: str = 'ml_bot_rand_rand_100k_games_NN_model'
+            ml_model: str = 'ml_bot_rand_rand_500k_games_NN_model'
             ml_location = pathlib.Path(model_dir) / ml_model
             bot1 = MLPlayingBot(model_location=ml_location)
         elif bot.lower() == "okibot":
-            okibot_model: str = 'okibot_1_0_15_rand_rand_100k_games_NN_model'
+            okibot_model: str = 'okibot_1_0_15_rand_rand_500k_games_NN_model'
             okibot_location = pathlib.Path(model_dir) / okibot_model
             bot1 = OkiPlayingBot(model_location=okibot_location)
         else:
@@ -63,10 +63,10 @@ def multiple(player_name) -> None:
 
     model_dir: str = 'ML_models'
 
-    ml_model: str = 'ml_bot_rand_rand_100k_games_NN_model'
+    ml_model: str = 'ml_bot_rand_rand_500k_games_NN_model'
     ml_location = pathlib.Path(model_dir) / ml_model
 
-    okibot_model: str = 'okibot_1_0_15_rand_rand_100k_games_NN_model'
+    okibot_model: str = 'okibot_1_0_15_rand_rand_500k_games_NN_model'
     okibot_location = pathlib.Path(model_dir) / okibot_model
 
     ml_bot: Bot = MLPlayingBot(model_location=ml_location)
@@ -94,7 +94,7 @@ def multiple(player_name) -> None:
                 okibot_count -= 15
                 bot_options.remove(okibot)
 
-            bot2 = s.make_gui_bot(name=f"Unknown bot [GAME {i}]")
+            bot2 = s.make_gui_bot(name=f"[Round {i}] Unknown bot")
 
             winner, game_points, round_points = engine.play_game(
                 bot1,
