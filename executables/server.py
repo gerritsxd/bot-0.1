@@ -35,7 +35,7 @@ def single(bot: str) -> None:
             ml_location = pathlib.Path(model_dir) / ml_model
             bot1 = MLPlayingBot(model_location=ml_location)
         elif bot.lower() == "okibot":
-            okibot_model: str = 'okibot_1_0_12_rand_rand_100k_games_NN_model'
+            okibot_model: str = 'okibot_1_0_15_rand_rand_100k_games_NN_model'
             okibot_location = pathlib.Path(model_dir) / okibot_model
             bot1 = OkiPlayingBot(model_location=okibot_location)
         else:
@@ -66,7 +66,7 @@ def multiple(player_name) -> None:
     ml_model: str = 'ml_bot_rand_rand_100k_games_NN_model'
     ml_location = pathlib.Path(model_dir) / ml_model
 
-    okibot_model: str = 'okibot_1_0_12_rand_rand_100k_games_NN_model'
+    okibot_model: str = 'okibot_1_0_15_rand_rand_100k_games_NN_model'
     okibot_location = pathlib.Path(model_dir) / okibot_model
 
     ml_bot: Bot = MLPlayingBot(model_location=ml_location)
